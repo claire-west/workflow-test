@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+    branches:
+      - master
+      - main
+permissions:
+  contents: write
+env:
+  GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: sudo apt-get install libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+      - run: pip install mkdocs mkdocs-material mkdocs-material-extensions pip install mkdocs-git-revision-date-localized-plugin mkdocs-glightbox mkdocs-macros-plugin pillow cairosvg
+      - run: mkdocs gh-deploy --force
+      - run: OFFLINE=true
+      - run: mkdocs gh-deploy --force --remote-branch offline
