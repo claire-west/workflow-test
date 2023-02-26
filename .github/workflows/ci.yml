@@ -23,3 +23,12 @@ jobs:
       - run: mkdocs gh-deploy --force
       - run: export OFFLINE=true
       - run: mkdocs gh-deploy --force --remote-branch offline
+  release:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.DEPLOY_KEY }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Offline Manual"
