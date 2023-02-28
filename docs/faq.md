@@ -4,6 +4,8 @@ Below are common questions not answered elsewhere in the documentation.
 
 ---
 
+## About Synthesizer V Studio
+
 ### Can I use Synthesizer V Studio for commercial purposes?
 Yes, both the Basic and Pro editions can be used for commercial purposes with no limit on revenue.
 
@@ -44,9 +46,19 @@ Ensure the note you are modifying does not have a vibrato depth of zero in the N
 
 If the vibrato depth for the notes is set to zero the [Vibrato Envelope](parameters/editing-parameters.md#vibrato-envelope) parameter will also have no effect, since it is applying a multiplier to the depth value (which is zero).
 
+## About This Website
+
 ### The keyboard combinations aren't working on Mac, why?
 
 Mac has a slightly different keyboard layout than other devices. Generally where you see ++ctrl++ Mac users will want to press ++cmd++ instead, and where you see ++alt++ it's usually ++opt++ on Mac.
+
+### How can I access the manual offline?
+
+You can download an offline version of the manual with the link below. You must unzip the folder and then open the "index.html" file in your web browser.
+
+Keep in mind that unlike the online version, the offline manual will need to be updated manually to see any updates or corrections. This can be done by re-downloading the zip file and extracting it to the same location (overwriting existing files).
+
+[Download](https://github.com/claire-west/svstudio-manual/zipball/offline)
 
 ---
 
