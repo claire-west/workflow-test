@@ -87,6 +87,11 @@ plugins:
       type: timeago
       enable_creation_date: true
   - macros
+  - mkdocs-video:
+      is_video: true
+      css_style:
+        width: "initial"
+        height: "initial"
   - offline:
       enabled: !ENV [OFFLINE, false]
 markdown_extensions:
