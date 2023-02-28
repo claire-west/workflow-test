@@ -26,7 +26,7 @@ jobs:
         env:
           OFFLINE: true
         run: mkdocs build
-      - run: zip -r -q synthv-unofficial-user-manual.zip site
+      - run: zip -r -q synthv-unofficial-user-manual.zip site/*
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
