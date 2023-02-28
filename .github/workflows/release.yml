@@ -8,9 +8,10 @@ jobs:
   release:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "aaiezza/create-release@latest"
         with:
-          repo_token: "${{ secrets.DEPLOY_KEY }}"
-          automatic_release_tag: "latest"
-          prerelease: false
-          title: "Offline Version"
+          release_branch: "offline"
+          tag: "latest"
+          name: "Offline Version"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
