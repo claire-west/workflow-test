@@ -1,8 +1,9 @@
 name: release
 on:
-  push:
-    branches:
-      - offline
+  workflow_run:
+    workflows: ["ci"]
+    types:
+      - completed
 jobs:
   release:
     runs-on: "ubuntu-latest"
