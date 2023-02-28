@@ -26,12 +26,12 @@ jobs:
         env:
           OFFLINE: true
         run: mkdocs build -f offline-light.yml -d offline-light
-      - run: cd offline-light && zip -r -q -x google*.html ../synthv-unofficial-user-manual-light.zip *
+      - run: cd offline-light && zip -r -q ../synthv-unofficial-user-manual-light.zip * -x google*.html CNAME sitemap*
       - name: build-offline-dark
         env:
           OFFLINE: true
         run: mkdocs build -f offline-dark.yml -d offline-dark
-      - run: cd offline-dark && zip -r -q -x google*.html ../synthv-unofficial-user-manual-dark.zip *
+      - run: cd offline-dark && zip -r -q ../synthv-unofficial-user-manual-dark.zip * -x google*.html CNAME sitemap*
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
