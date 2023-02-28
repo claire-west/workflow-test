@@ -8,7 +8,7 @@ jobs:
   release:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "aaiezza/create-release@latest"
+      - uses: "aaiezza/create-release@master"
         with:
           release_branch: "offline"
           tag: "latest"
