@@ -22,7 +22,19 @@ jobs:
       - run: pip install mkdocs mkdocs-material mkdocs-material-extensions pip install mkdocs-git-revision-date-localized-plugin mkdocs-glightbox mkdocs-macros-plugin mkdocs-video pillow cairosvg
       - name: deploy-pages
         run: mkdocs gh-deploy --force
-      - name: deploy-offline
+      - name: build-offline
         env:
           OFFLINE: true
-        run: mkdocs gh-deploy --force --remote-branch offline
+        run: mkdocs build
+  release:
+    runs-on: "ubuntu-latest"
+    needs: deploy
+    steps:
+      - run: zip -r -q synthv-unofficial-user-manual.zip site
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.DEPLOY_KEY }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Offline Version"
+          files: synthv-unofficial-user-manual.zip
