@@ -26,10 +26,6 @@ jobs:
         env:
           OFFLINE: true
         run: mkdocs build
-  release:
-    runs-on: "ubuntu-latest"
-    needs: deploy
-    steps:
       - run: zip -r -q synthv-unofficial-user-manual.zip site
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
